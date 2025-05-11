@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Vicke2331/testing.jest/issues"
   },
-  "homepage": "https://github.com/Vicke2331/testing.jest#readme"
+  "homepage": "https://github.com/Vicke2331/testing.jest#readme",
+  "dependencies": {
+    "underscore": "^1.13.7"
+  }
 }
