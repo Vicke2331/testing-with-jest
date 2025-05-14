@@ -1,7 +1,6 @@
 const stack = require('../src/stack');
 beforeEach(() => {
     while (stack.pop()) {
-        // töm stacken
     }
 });
 
@@ -22,6 +21,9 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+
+//mitt test
 
 test('pop on empty stack returns undefined', () => {
     const result = stack.pop();

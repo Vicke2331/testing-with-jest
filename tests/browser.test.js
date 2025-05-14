@@ -44,7 +44,7 @@ describe('Clicking "Pusha till stacken"', () => {
 });
 
 
-test('After pushing and popping, stack should be n/a again', async()=>{
+test('After pushing and popping, stack should be undefined again', async()=>{
     const push = await driver.findElement(By.id('push'));
     await push.click();
 
@@ -54,6 +54,9 @@ test('After pushing and popping, stack should be n/a again', async()=>{
 
     const pop = await driver.findElement(By.id('pop'));
     await pop.click();
+
+    const alert2 = await driver.switchTo().alert();
+    await alert2.accept();
 
     const peek = await driver.findElement(By.id('peek'));
     await peek.click();
