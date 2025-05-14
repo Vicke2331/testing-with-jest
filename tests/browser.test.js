@@ -44,13 +44,30 @@ describe('Clicking "Pusha till stacken"', () => {
 });
 
 
-test('After pushing and popping, stack should be undefined again', async()=>{
+
+test('After pushing and popping, stack should be "undefined"', async()=>{
+     while (true) {
+        // Klicka på "peek"
+        const peek = await driver.findElement(By.id('peek'));
+        await peek.click();
+
+        const value = await driver.findElement(By.id('top_of_stack')).getText();
+
+        if (value === "undefined") break; // stacken är tom
+
+        const pop = await driver.findElement(By.id('pop'));
+        await pop.click();
+
+        const alert = await driver.switchTo().alert();
+        await alert.accept();
+    }
+
     const push = await driver.findElement(By.id('push'));
     await push.click();
 
-    const alert = await driver.switchTo().alert();
-    await alert.sendKeys("testvärde");
-    await alert.accept();
+    const alert1 = await driver.switchTo().alert();
+    await alert1.sendKeys("testvärde");
+    await alert1.accept();
 
     const pop = await driver.findElement(By.id('pop'));
     await pop.click();
@@ -62,6 +79,6 @@ test('After pushing and popping, stack should be undefined again', async()=>{
     await peek.click();
 
     const result = await driver.findElement(By.id('top_of_stack')).getText();
-    expect(result).toBe("n/a");
+    expect(result).toBe("undefined");
 
-})
+});
